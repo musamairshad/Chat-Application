@@ -5,12 +5,15 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('FlutterChat'),
-      ),
-      body: const Center(
-        child: Text('Loading...'),
+    return const Scaffold(
+      // appBar: AppBar(
+      //   title: const Text('FlutterChat'),
+      // ),
+      body: Center(
+        // child: Text('Loading...'),
+        child: CircularProgressIndicator(
+          color: Color(0xff075e54),
+        ),
       ),
     );
   }
