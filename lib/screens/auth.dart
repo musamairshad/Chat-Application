@@ -88,7 +88,8 @@ class _AuthScreenState extends State<AuthScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.primary,
+      // backgroundColor: Theme.of(context).colorScheme.primary,
+      backgroundColor: Colors.white,
       body: Center(
         child: SingleChildScrollView(
           child: Column(
@@ -102,9 +103,11 @@ class _AuthScreenState extends State<AuthScreen> {
                   right: 20,
                 ),
                 width: 200,
-                child: Image.asset('assets/images/chat.png'),
+                // child: Image.asset('assets/images/chat.png'),
+                child: Image.asset('assets/images/logo.png'),
               ),
-              Card(
+              Container(
+                color: Colors.white,
                 margin: const EdgeInsets.all(20),
                 child: SingleChildScrollView(
                   child: Padding(
@@ -174,28 +177,44 @@ class _AuthScreenState extends State<AuthScreen> {
                           ),
                           const SizedBox(height: 12),
                           if (_isAuthenticating)
-                            const CircularProgressIndicator(),
+                            const CircularProgressIndicator(
+                              color: Color(0xff075E54),
+                            ),
                           if (!_isAuthenticating)
                             ElevatedButton(
                               onPressed: _submit,
                               style: ElevatedButton.styleFrom(
-                                backgroundColor: Theme.of(context)
-                                    .colorScheme
-                                    .primaryContainer,
+                                // backgroundColor: Theme.of(context)
+                                //     .colorScheme
+                                //     .primaryContainer,
+                                backgroundColor: const Color(0xff25D366),
                               ),
-                              child: Text(_isLogin ? 'Login' : 'Signup'),
+                              child: Text(
+                                _isLogin ? 'Login' : 'Signup',
+                                style: const TextStyle(
+                                  color: Colors.white,
+                                ),
+                              ),
                             ),
                           if (!_isAuthenticating)
                             TextButton(
+                              style: TextButton.styleFrom(
+                                foregroundColor: Colors.grey[900],
+                              ),
                               onPressed: () {
                                 setState(() {
                                   // _isLogin = _isLogin ? false : true;
                                   _isLogin = !_isLogin;
                                 });
                               },
-                              child: Text(_isLogin
-                                  ? 'Create an account'
-                                  : 'I already have an account'),
+                              child: Text(
+                                _isLogin
+                                    ? 'Create an account'
+                                    : 'I already have an account',
+                                style: const TextStyle(
+                                  color: Colors.black,
+                                ),
+                              ),
                             ),
                         ],
                       ),
