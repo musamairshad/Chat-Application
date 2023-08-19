@@ -10,15 +10,28 @@ class ChatScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('FlutterChat'),
+          backgroundColor: const Color(0xff008069),
+          title: const Text(
+            'WhatsApp',
+            style: TextStyle(
+              color: Colors.white,
+            ),
+          ),
           actions: [
-            IconButton(
+            TextButton.icon(
+              label: const Text(
+                'Logout',
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
               onPressed: () {
                 FirebaseAuth.instance.signOut();
               },
-              icon: Icon(
+              icon: const Icon(
                 Icons.exit_to_app,
-                color: Theme.of(context).colorScheme.primary,
+                // color: Theme.of(context).colorScheme.primary,
+                color: Colors.white,
               ),
             ),
           ],
